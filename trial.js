@@ -1,43 +1,3 @@
-var getServer = function() {
-	return {
-		like: {
-			count: 0,
-			userReaction: false
-		},
-		dislike: {
-			count: 0,
-			userReaction: false
-		},
-		neutral: {
-			count: 0,
-			userReaction: false
-		},
-		get: function() {
-			var res = [];
-			for (let el in this) {
-				if (this[el].count !== undefined) {
-					res.push(this[el]);
-				}
-			}
-			return res;
-		},
-		vote: function(name){
-			for (let el in this) {
-				if (this[el].count !== undefined) {
-					if (el == name) {
-						this[el].userReaction = !this[el].userReaction;
-						this[el].count += this[el].userReaction ? 1 : -1;
-					} else {
-						this[el].count -= this[el].userReaction;
-						this[el].userReaction = false;
-					}
-				}
-			}
-			return this.get();
-		}
-	}
-}
-
 ReactionsModule(".try1", getServer());
 
 ReactionsModule(".try2", getServer(), {
@@ -71,4 +31,44 @@ ReactionsModule(".try2", getServer(), {
 		}
 	}
 });
+
+function getServer() {
+	return {
+		like: {
+			count: 0,
+			userReaction: false
+		},
+		dislike: {
+			count: 0,
+			userReaction: false
+		},
+		neutral: {
+			count: 0,
+			userReaction: false
+		},
+		get: function() {
+			let res = [];
+			for (let el in this) {
+				if (this[el].count !== undefined) {
+					res.push(this[el]);
+				}
+			}
+			return res;
+		},
+		vote: function(name){
+			for (let el in this) {
+				if (this[el].count !== undefined) {
+					if (el == name) {
+						this[el].userReaction = !this[el].userReaction;
+						this[el].count += this[el].userReaction ? 1 : -1;
+					} else {
+						this[el].count -= this[el].userReaction;
+						this[el].userReaction = false;
+					}
+				}
+			}
+			return this.get();
+		}
+	}
+}
 

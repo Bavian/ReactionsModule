@@ -11,7 +11,7 @@
 
 	function addTo(htmlElement) {
 
-		var standartSettings = {
+		let standartSettings = {
 			label: "How do you like this article?",
 			reactions: [
 				{
@@ -25,7 +25,7 @@
 			]
 		};
 
-		var container, computedStyles, computedContent;
+		let container, computedStyles, computedContent;
 		elementsInit();
 		stylesInit();
 		contentInit();
@@ -37,13 +37,13 @@
 			container = {
 				element: document.createElement("div"),
 				childs: function() {
-					var res = [];
+					let res = [];
 				
 					res.push({
 						element: document.createElement("div")
 					});
 
-					var length = ((settings || standartSettings).reactions || standartSettings.reactions).length;
+					const length = ((settings || standartSettings).reactions || standartSettings.reactions).length;
 					for (let i = 0; i < length; i++) {
 						res.push({
 							element: document.createElement("div")
@@ -77,9 +77,9 @@
 				return standartStylesGetter();
 			}
 
-			var userStyles = settings.stylesGetter ? settings.stylesGetter() : {};
-			var standartStyles = standartStylesGetter();
-			var res = {};
+			const userStyles = settings.stylesGetter ? settings.stylesGetter() : {};
+			const standartStyles = standartStylesGetter();
+			let res = {};
 		
 			for (let style in standartStyles) {
 				res[style] = userStyles[style] || standartStyles[style];
@@ -90,7 +90,7 @@
 
 		function standartStylesGetter() {
 
-			var screenWidth = document.documentElement.clientWidth;
+			const screenWidth = document.documentElement.clientWidth;
 
 			return {
 				container: {
@@ -158,7 +158,7 @@
 				return standartSettings;
 			}
 
-			var res = {};
+			let res = {};
 			for (let setting in standartSettings) {
 				res[setting] = settings[setting] || standartSettings[setting];
 			}
@@ -167,7 +167,7 @@
 		}
 
 		function updateReactions(getter) {
-			var counts = getter();
+			const counts = getter();
 			for (let i = 0; i < computedContent.reactions.length; i++) {
 
 				container.childs[i + 1].element.innerHTML = computedContent.reactions[i].content
