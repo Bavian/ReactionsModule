@@ -1,0 +1,28 @@
+@import "./_active/reactions-block__reaction-button_active.less";
+
+.border-radius(...) {
+	-webkit-border-radius: @arguments;
+	-moz-border-radius: @arguments;
+	border-radius: @arguments;
+}
+
+.box-shadow(...) {
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+
+.reactions-block__reaction-button {
+	display: inline-block;
+	vertical-align: middle;
+	height: 40px;
+	width: 40px;
+	.border-radius(50%);
+	border: 1px solid #ede8b2;
+	cursor: pointer;
+	margin-right: 10px;
+
+	&:hover {
+		.box-shadow(0 0 0 7px #fffacc);
+	}
+}
