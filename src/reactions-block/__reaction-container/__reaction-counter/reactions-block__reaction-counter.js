@@ -9,10 +9,10 @@
  */
 module.exports = function(value, container) {
 	
-	let htmlElement = document.createElement("div");
+	let htmlElement = document.createElement('div');
 
 	htmlElement.textContent = value;
-	htmlElement.classList.add("reactions-block__reaction-counter");
+	htmlElement.classList.add('reactions-block__reaction-counter');
 
 	container.appendChild(htmlElement);
 

@@ -11,15 +11,15 @@
  */
 module.exports = function(buttonValue, counterValue, container, onButtonClick) {
 	
-	let htmlElement = document.createElement("div");
+	let htmlElement = document.createElement('div');
 
-	htmlElement.classList.add("reactions-block__reaction-container");
+	htmlElement.classList.add('reactions-block__reaction-container');
 	container.appendChild(htmlElement);
 
-	let Button = require("./__reaction-button/reactions-block__reaction-button.js");
+	let Button = require('./__reaction-button/reactions-block__reaction-button.js');
 	let button = new Button(buttonValue, htmlElement, onButtonClick);
 
-	let Counter = require("./__reaction-counter/reactions-block__reaction-counter.js");
+	let Counter = require('./__reaction-counter/reactions-block__reaction-counter.js');
 	let counter = new Counter(counterValue, htmlElement);
 
 	/**

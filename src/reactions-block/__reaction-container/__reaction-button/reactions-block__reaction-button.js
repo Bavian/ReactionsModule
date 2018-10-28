@@ -13,19 +13,19 @@ module.exports =  function(value, container, onClick) {
 	let htmlElement = document.createElement('div');
 
 	htmlElement.textContent = value;
-	htmlElement.classList.add("reactions-block__reaction-button");
+	htmlElement.classList.add('reactions-block__reaction-button');
 	container.appendChild(htmlElement);
 
-	htmlElement.addEventListener("click", onClick);
+	htmlElement.addEventListener('click', onClick);
 
 	/** Enables the Button */
 	this.enable = function() {
-		htmlElement.classList.add("reactions-block__reaction-button_active");
+		htmlElement.classList.add('reactions-block__reaction-button_active');
 	}
 
 	/** Disables the Button */
 	this.disable = function() {
-		htmlElement.classList.remove("reactions-block__reaction-button_active");
+		htmlElement.classList.remove('reactions-block__reaction-button_active');
 	}
 	
 }

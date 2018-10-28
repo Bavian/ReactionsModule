@@ -8,14 +8,14 @@
  */
 module.exports = function(userAPI, container) {
 
-	let htmlElement = document.createElement("div");
+	let htmlElement = document.createElement('div');
 
-	htmlElement.classList.add("reactions-block");
+	htmlElement.classList.add('reactions-block');
 
-	let Label = require("./__label/reactions-block__label.js");
-	this.label = new Label("How do you like this article", htmlElement);
+	let Label = require('./__label/reactions-block__label.js');
+	this.label = new Label('How do you like this article', htmlElement);
 
-	let ReactionsContainer = require("./__reaction-container/reactions-block__reaction-container.js");
+	let ReactionsContainer = require('./__reaction-container/reactions-block__reaction-container.js');
 	let reactionContainers = [];
 
 	let emojis = userAPI.getEmojis();
