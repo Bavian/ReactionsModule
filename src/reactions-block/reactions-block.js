@@ -8,12 +8,15 @@
  */
 module.exports = function(userAPI, container) {
 
+	const standartLabelValue = 'How do you like this article?';
+
 	let htmlElement = document.createElement('div');
 
 	htmlElement.classList.add('reactions-block');
 
 	let Label = require('./__label/reactions-block__label.js');
-	this.label = new Label('How do you like this article', htmlElement);
+	const labelValue = userAPI.getLabelValue !== undefined ? userAPI.getLabelValue() : standartLabelValue;
+	this.label = new Label(labelValue, htmlElement);
 
 	let ReactionsContainer = require('./__reaction-container/reactions-block__reaction-container.js');
 	let reactionContainers = [];
