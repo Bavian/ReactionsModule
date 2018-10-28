@@ -20,12 +20,12 @@ module.exports =  function(value, container, onClick) {
 
 	/** Enables the Button */
 	this.enable = function() {
-		htmlElement.classList.add('reactions-block__reaction-button_active');
+		htmlElement.classList.add('reactions-block__reaction-button--active');
 	}
 
 	/** Disables the Button */
 	this.disable = function() {
-		htmlElement.classList.remove('reactions-block__reaction-button_active');
+		htmlElement.classList.remove('reactions-block__reaction-button--active');
 	}
 	
 }
