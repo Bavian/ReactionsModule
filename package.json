@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/Bavian/ReactionsModule#readme",
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",

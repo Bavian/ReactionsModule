@@ -1,10 +1,18 @@
 module.exports = {
 	entry: './src/index.js',
 	output: {
-		filename: './ReactionsModule.js'
+		filename: './ReactionsModule.js',
+    library: 'ReactionsModule',
+    libraryTarget: 'umd'
 	},
 	module: {
 		rules: [
+      {
+        test: /\.js$/,
+        use: [
+          'babel-loader'
+        ]
+      },
 			{
 				test: /\.less$/,
 				use: [
