@@ -7,7 +7,7 @@
  * @param {string} value - value of the Label
  * @param {HTML element} container - container for the Label
  */
-module.exports = function(value, container) {
+export default function Label(value, container) {
 	
 	let htmlElement = document.createElement('div');
 

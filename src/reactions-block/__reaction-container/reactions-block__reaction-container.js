@@ -1,3 +1,6 @@
+import Button from './__reaction-button/reactions-block__reaction-button.js';
+import Counter from './__reaction-counter/reactions-block__reaction-counter.js';
+
 /**
  * Creates an instance of ReactionContainer
  * 
@@ -9,17 +12,15 @@
  * @param {HTML element} container - container for ReactionContainer
  * @param {function} onButtonClick - function called by the Button click
  */
-module.exports = function(buttonValue, counterValue, container, onButtonClick) {
+export default function ReactionContainer(buttonValue, counterValue, container, onButtonClick) {
 	
 	let htmlElement = document.createElement('div');
 
 	htmlElement.classList.add('reactions-block__reaction-container');
 	container.appendChild(htmlElement);
 
-	let Button = require('./__reaction-button/reactions-block__reaction-button.js');
 	let button = new Button(buttonValue, htmlElement, onButtonClick);
 
-	let Counter = require('./__reaction-counter/reactions-block__reaction-counter.js');
 	let counter = new Counter(counterValue, htmlElement);
 
 	/**

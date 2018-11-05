@@ -7,7 +7,7 @@
  * @param {number} value - value of the Counter
  * @param {HTML element} container - container for the Counter
  */
-module.exports = function(value, container) {
+export default function Counter(value, container) {
 	
 	let htmlElement = document.createElement('div');
 

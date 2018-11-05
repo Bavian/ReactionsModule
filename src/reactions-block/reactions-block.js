@@ -1,12 +1,15 @@
+import Label from './__label/reactions-block__label.js';
+import ReactionContainer from './__reaction-container/reactions-block__reaction-container.js';
+
 /**
  * Creates an instance of ReactionsBlock
  * 
  * @author: Bavian
- * @this {ReactionBlock}
+ * @this {ReactionsBlock}
  * @param {Object} userAPI - object with methods getEmojies(), get() and set(ind) that allow to get and give information
  * @param {HTML Element} container - container of the ReactionBlock
  */
-module.exports = function(userAPI, container) {
+export default function ReactionsBlock(userAPI, container) {
 
 	const standartLabelValue = 'How do you like this article?';
 
@@ -14,18 +17,16 @@ module.exports = function(userAPI, container) {
 
 	htmlElement.classList.add('reactions-block');
 
-	let Label = require('./__label/reactions-block__label.js');
 	const labelValue = userAPI.getLabelValue !== undefined ? userAPI.getLabelValue() : standartLabelValue;
 	this.label = new Label(labelValue, htmlElement);
 
-	let ReactionsContainer = require('./__reaction-container/reactions-block__reaction-container.js');
 	let reactionContainers = [];
 
 	let emojis = userAPI.getEmojis();
 
 	for (let i = 0; i < emojis.length; i++) {
 
-		reactionContainers[i] = new ReactionsContainer(emojis[i], 0, htmlElement, getOnButtonClickFunction(i));
+		reactionContainers[i] = new ReactionContainer(emojis[i], 0, htmlElement, getOnButtonClickFunction(i));
 		
 		/**
 		 * Creates a function that updates Counters and gives the message about number of selected reaction

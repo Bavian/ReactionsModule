@@ -8,7 +8,7 @@
  * @param {HTML element} container - container for the Button
  * @param {function} onClick - function called by the Button click
  */
-module.exports =  function(value, container, onClick) {
+export default function Button(value, container, onClick) {
 
 	let htmlElement = document.createElement('div');
 
