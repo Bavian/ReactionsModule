@@ -11,62 +11,62 @@ import ReactionContainer from './__reaction-container/reactions-block__reaction-
  */
 export default function ReactionsBlock(userAPI, container) {
 
-	const standartLabelValue = 'How do you like this article?';
+  const standartLabelValue = 'How do you like this article?';
 
-	let htmlElement = document.createElement('div');
+  let htmlElement = document.createElement('div');
 
-	htmlElement.classList.add('reactions-block');
+  htmlElement.classList.add('reactions-block');
 
-	const labelValue = userAPI.getLabelValue !== undefined ? userAPI.getLabelValue() : standartLabelValue;
-	this.label = new Label(labelValue, htmlElement);
+  const labelValue = userAPI.getLabelValue !== undefined ? userAPI.getLabelValue() : standartLabelValue;
+  this.label = new Label(labelValue, htmlElement);
 
-	let reactionContainers = [];
+  let reactionContainers = [];
 
-	let emojis = userAPI.getEmojis();
+  let emojis = userAPI.getEmojis();
 
-	for (let i = 0; i < emojis.length; i++) {
+  for (let i = 0; i < emojis.length; i++) {
 
-		reactionContainers[i] = new ReactionContainer(emojis[i], 0, htmlElement, getOnButtonClickFunction(i));
-		
-		/**
-		 * Creates a function that updates Counters and gives the message about number of selected reaction
-		 *
-		 * @param {number} ind - number of the selected reaction
-		 */
-		function getOnButtonClickFunction(ind) {
-			
-			return function() {
-				updateReactions(ind);
-			}
+    reactionContainers[i] = new ReactionContainer(emojis[i], 0, htmlElement, getOnButtonClickFunction(i));
+    
+    /**
+     * Creates a function that updates Counters and gives the message about number of selected reaction
+     *
+     * @param {number} ind - number of the selected reaction
+     */
+    function getOnButtonClickFunction(ind) {
+      
+      return function() {
+        updateReactions(ind);
+      }
 
-		}
-	}
+    }
+  }
 
-	updateReactions();
+  updateReactions();
 
-	container.appendChild(htmlElement);
+  container.appendChild(htmlElement);
 
-	/**
-	 * Updates the Values of the Counters
-	 *
-	 * @param {number} ind - the number of reaction selected by a user, if ind is undefined the function updates the Counters.
-	 */
-	function updateReactions(ind) {
-		
-		let values = ind !== undefined ? userAPI.set(ind) : userAPI.get();
+  /**
+   * Updates the Values of the Counters
+   *
+   * @param {number} ind - the number of reaction selected by a user, if ind is undefined the function updates the Counters.
+   */
+  function updateReactions(ind) {
+    
+    let values = ind !== undefined ? userAPI.set(ind) : userAPI.get();
 
-		for (let i = 0; i < values.length; i++) {
-			
-			reactionContainers[i].changeCounter(values[i].count);
-			
-			if (values[i].reaction) {
-				reactionContainers[i].enableButton();
-			} else {
-				reactionContainers[i].disableButton();
-			}
+    for (let i = 0; i < values.length; i++) {
+      
+      reactionContainers[i].changeCounter(values[i].count);
+      
+      if (values[i].reaction) {
+        reactionContainers[i].enableButton();
+      } else {
+        reactionContainers[i].disableButton();
+      }
 
-		}
+    }
 
-	}
+  }
 
 }

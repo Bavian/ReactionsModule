@@ -8,12 +8,12 @@
  * @param {HTML element} container - container for the Label
  */
 export default function Label(value, container) {
-	
-	let htmlElement = document.createElement('div');
+  
+  let htmlElement = document.createElement('div');
 
-	htmlElement.textContent = value;
-	htmlElement.classList.add('reactions-block__label');
-	container.appendChild(htmlElement);
+  htmlElement.textContent = value;
+  htmlElement.classList.add('reactions-block__label');
+  container.appendChild(htmlElement);
 
 }
 

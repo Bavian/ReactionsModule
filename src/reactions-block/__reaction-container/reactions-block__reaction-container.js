@@ -13,38 +13,38 @@ import Counter from './__reaction-counter/reactions-block__reaction-counter.js';
  * @param {function} onButtonClick - function called by the Button click
  */
 export default function ReactionContainer(buttonValue, counterValue, container, onButtonClick) {
-	
-	let htmlElement = document.createElement('div');
+  
+  let htmlElement = document.createElement('div');
 
-	htmlElement.classList.add('reactions-block__reaction-container');
-	container.appendChild(htmlElement);
+  htmlElement.classList.add('reactions-block__reaction-container');
+  container.appendChild(htmlElement);
 
-	let button = new Button(buttonValue, htmlElement, onButtonClick);
+  let button = new Button(buttonValue, htmlElement, onButtonClick);
 
-	let counter = new Counter(counterValue, htmlElement);
+  let counter = new Counter(counterValue, htmlElement);
 
-	/**
-	 * Changes the value of the Counter
-	 * 
-	 * @param {number} value - a new value of the Counter
-	 */
-	this.changeCounter = function(value) {
-		counter.changeValue(value);
-	}
+  /**
+   * Changes the value of the Counter
+   * 
+   * @param {number} value - a new value of the Counter
+   */
+  this.changeCounter = function(value) {
+    counter.changeValue(value);
+  }
 
-	/**
-	 * Enables the Button
-	 */
-	this.enableButton = function() {
-		button.enable();
-	}
+  /**
+   * Enables the Button
+   */
+  this.enableButton = function() {
+    button.enable();
+  }
 
-	/**
-	 * Disables the Button
-	 */
-	this.disableButton = function() {
-		button.disable();
-	}
+  /**
+   * Disables the Button
+   */
+  this.disableButton = function() {
+    button.disable();
+  }
 
 }
 

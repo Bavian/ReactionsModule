@@ -10,23 +10,23 @@
  */
 export default function Button(value, container, onClick) {
 
-	let htmlElement = document.createElement('div');
+  let htmlElement = document.createElement('div');
 
-	htmlElement.textContent = value;
-	htmlElement.classList.add('reactions-block__reaction-button');
-	container.appendChild(htmlElement);
+  htmlElement.textContent = value;
+  htmlElement.classList.add('reactions-block__reaction-button');
+  container.appendChild(htmlElement);
 
-	htmlElement.addEventListener('click', onClick);
+  htmlElement.addEventListener('click', onClick);
 
-	/** Enables the Button */
-	this.enable = function() {
-		htmlElement.classList.add('reactions-block__reaction-button--active');
-	}
+  /** Enables the Button */
+  this.enable = function() {
+    htmlElement.classList.add('reactions-block__reaction-button--active');
+  }
 
-	/** Disables the Button */
-	this.disable = function() {
-		htmlElement.classList.remove('reactions-block__reaction-button--active');
-	}
-	
+  /** Disables the Button */
+  this.disable = function() {
+    htmlElement.classList.remove('reactions-block__reaction-button--active');
+  }
+  
 }
 
